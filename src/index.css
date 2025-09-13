@@ -1,0 +1,53 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* optional: set a nice font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --tw-font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+/* Reveal-on-scroll (used by .reveal elements) */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px) scale(.995);
+  transition: opacity 560ms cubic-bezier(.2,.9,.2,1), transform 560ms cubic-bezier(.2,.9,.2,1);
+  will-change: opacity, transform;
+}
+
+/* When visible, show with natural position */
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Prevent touch highlight on mobile */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Slightly stronger backdrop blur for cards when supported */
+.backdrop-blur-md {
+  backdrop-filter: blur(8px);
+}
+
+/* Polished line-clamp fallback if tailwind plugin not available */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Make interactive elements feel snappy */
+button, a {
+  touch-action: manipulation;
+}
+
+/* Optional micro-optim: hint transforms */
+.reveal, .reveal * {
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+/* you can add small defaults here if desired */
